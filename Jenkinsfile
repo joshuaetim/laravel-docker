@@ -1,5 +1,13 @@
 pipeline {
  agent any
+ 
+ environment{
+    DB_HOST = credentials("laravel-host")
+    DB_DATABASE = credentials("laravel-database")
+    DB_USERNAME = credentials("laravel-user")
+    DB_PASSWORD = credentials("laravel-password")
+ }
+
  stages {
         stage("Build") {
             steps {
